@@ -1,7 +1,12 @@
-import { initializeNetwork } from '@common/network/init';
-import { NetworkSide } from '@common/network/sides';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+import { initializeNetwork } from '@common/network/init';
+import { NetworkSide } from '@common/network/sides';
+
+declare global {
+  var __VITE_PRELOAD__: any[];
+}
 
 globalThis.__VITE_PRELOAD__ = []
 

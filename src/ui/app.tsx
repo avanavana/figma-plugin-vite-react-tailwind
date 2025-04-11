@@ -38,7 +38,7 @@ function App() {
         <div className="flex flex-col gap-1.5 *:transition *:duration-150">
           <Label htmlFor="text">Text</Label>
           <div className="relative">
-            <Input id="text" type="text" value={options.text} onChange={(e) => setOptions((prev) => ({ ...prev, text: +e.target.value }))}/>
+            <Input id="text" type="text" value={options.text} onChange={(e) => setOptions((prev) => ({ ...prev, text: e.target.value }))}/>
           </div>
         </div>
       </div>

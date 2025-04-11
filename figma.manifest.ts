@@ -1,11 +1,11 @@
 // https://www.figma.com/plugin-docs/manifest/
 export default {
-  name: 'Figma Plugin Template (React/Vite/Tailwind)',
-  id: '1407643997043710374',
+  name: 'Figma Plugin Template (Vite/React/Tailwind)',
+  id: '1492345579098705021',
   api: '1.0.0',
   main: 'plugin.js',
   ui: 'index.html',
   capabilities: [],
   enableProposedApi: false,
-  editorType: [ 'figma' ],
+  editorType: [ 'figma' ]
 };
