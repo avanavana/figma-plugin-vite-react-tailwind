@@ -4,8 +4,6 @@ import generateFile from 'vite-plugin-generate-file';
 import { viteSingleFile } from 'vite-plugin-singlefile';
 import figmaManifest from './figma.manifest';
 
-globalThis.__VITE_PRELOAD__ = [];
-
 export default defineConfig(({ mode }) => ({
   plugins: [
     viteSingleFile(),
@@ -30,8 +28,8 @@ export default defineConfig(({ mode }) => ({
   },
   resolve: {
     alias: {
-      '@common': path.resolve('src/common'),
-      '@plugin': path.resolve('src/plugin')
+      '@/common': path.resolve('src/common'),
+      '@/plugin': path.resolve('src/plugin')
     }
   }
 }));

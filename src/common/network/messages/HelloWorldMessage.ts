@@ -1,7 +1,7 @@
 import * as Networker from 'monorepo-networker';
-import { NetworkSide } from '@common/network/sides';
-import { formatError } from '@common/utils';
-import { Payload } from '@common/types';
+import { NetworkSide } from '@/common/network/sides';
+import { formatError } from '@/common/utils';
+import { Payload } from '@/common/types';
 
 export class HelloWorldMessage extends Networker.MessageType<Payload> {
   private async setPluginOptions(payload: Payload): Promise<void> {

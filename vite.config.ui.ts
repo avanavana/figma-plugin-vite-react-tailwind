@@ -3,11 +3,16 @@ import path from 'node:path';
 import { viteSingleFile } from 'vite-plugin-singlefile';
 import react from '@vitejs/plugin-react';
 import richSvg from 'vite-plugin-react-rich-svg';
-import tailwindcss from 'tailwindcss';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  plugins: [ react(), richSvg(), viteSingleFile() ],
+  plugins: [ 
+    react(), 
+    richSvg(), 
+    tailwindcss(),
+    viteSingleFile()
+  ].filter(Boolean),
   root: path.resolve('src/ui'),
   build: {
     minify: mode === 'production',
@@ -19,15 +24,10 @@ export default defineConfig(({ mode }) => ({
       input: path.resolve('src/ui/index.html')
     }
   },
-  css: {
-    postcss: {
-      plugins: [ tailwindcss() ]
-    }
-  },
   resolve: {
     alias: {
-      '@common': path.resolve('src/common'),
-      '@ui': path.resolve('src/ui')
+      '@/common': path.resolve('src/common'),
+      '@/ui': path.resolve('src/ui')
     }
   }
 }));

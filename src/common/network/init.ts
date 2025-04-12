@@ -1,6 +1,6 @@
 import * as Networker from 'monorepo-networker';
-import { NetworkMessages } from '@common/network/messages';
-import { NetworkSide } from '@common/network/sides';
+import { NetworkMessages } from '@/common/network/messages';
+import { NetworkSide } from '@/common/network/sides';
 
 export const initializeNetwork = Networker.createInitializer({
   messagesRegistry: NetworkMessages.registry,

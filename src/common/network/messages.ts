@@ -1,7 +1,7 @@
-import { ErrorMessage } from '@common/network/messages/ErrorMessage';
-import { LoadPluginOptionsMessage } from '@common/network/messages/LoadPluginOptionsMessage';
-import { PingMessage } from '@common/network/messages/PingMessage';
-import { HelloWorldMessage } from '@common/network/messages/HelloWorldMessage';
+import { ErrorMessage } from '@/common/network/messages/ErrorMessage';
+import { LoadPluginOptionsMessage } from '@/common/network/messages/LoadPluginOptionsMessage';
+import { PingMessage } from '@/common/network/messages/PingMessage';
+import { HelloWorldMessage } from '@/common/network/messages/HelloWorldMessage';
 import * as Networker from 'monorepo-networker';
 
 export namespace NetworkMessages {

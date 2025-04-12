@@ -1,8 +1,8 @@
 import * as Networker from 'monorepo-networker';
-import { NetworkSide } from '@common/network/sides';
-import { LoadingError } from '@common/errors';
-import { formatError } from '@common/utils';
-import { PluginOptions, Payload } from '@common/types';
+import { NetworkSide } from '@/common/network/sides';
+import { LoadingError } from '@/common/errors';
+import { formatError } from '@/common/utils';
+import { PluginOptions, Payload } from '@/common/types';
 
 type Response = [ LoadingError?, PluginOptions? ];
 

@@ -3,12 +3,10 @@
     "noEmit": true,
     "skipLibCheck": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "esModuleInterop": true
   },
   "include": [
-    "*.ts",
-    "postcss.config.js",
-    "tailwind.config.js"
+    "*.ts"
   ]
 }

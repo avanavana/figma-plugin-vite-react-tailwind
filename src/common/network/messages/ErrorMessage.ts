@@ -1,4 +1,4 @@
-import { NetworkSide } from '@common/network/sides';
+import { NetworkSide } from '@/common/network/sides';
 import * as Networker from 'monorepo-networker';
 
 interface Payload {

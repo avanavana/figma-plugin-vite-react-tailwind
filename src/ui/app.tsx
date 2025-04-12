@@ -1,20 +1,23 @@
-import { useState, useEffect } from 'react';
-import { NetworkMessages } from '@common/network/messages';
+import React, { useState, useEffect } from 'react';
+import { NetworkMessages } from '@/common/network/messages';
+import pkg from '../../package.json';
 
-import { Button } from '@ui/components/ui/button';
-import { Input } from '@ui/components/ui/input';
-import { Label } from '@ui/components/ui/label';
-import { Spinner } from '@ui/components/ui/spinner';
+import { Button } from '@/ui/components/ui/button';
+import { Input } from '@/ui/components/ui/input';
+import { Label } from '@/ui/components/ui/label';
+import { Spinner } from '@/ui/components/ui/spinner';
 
-import { PluginOptions } from '@common/types';
+import { PluginOptions } from '@/common/types';
 
-import '@ui/styles/main.css';
+import '@/ui/styles/global.css';
 
 const defaultOptions: PluginOptions = { text: 'world' };
 
+const tailwindVersion = pkg.dependencies['tailwindcss'].replace('^', '');
+
 function App() {
   const [ options, setOptions ] = useState(defaultOptions);
-  const [ mounted, setMounted ] = useState(false);
+  const [ loaded, setLoaded ] = useState(false);
 
   useEffect(() => {
     async function loadPluginOptions() {
@@ -25,27 +28,29 @@ function App() {
       } catch (e) {
         NetworkMessages.LOG_ERROR.send({ message: 'Failed to load plugin options.' });
       } finally {
-        setMounted(true);
+        setLoaded(true);
       }
     }
 
     loadPluginOptions();
   }, []);
 
-  return mounted ? (
+  return loaded ? (
     <form className="p-8 w-full m-0 flex flex-col gap-4">
       <div>
         <div className="flex flex-col gap-1.5 *:transition *:duration-150">
-          <Label htmlFor="text">Text</Label>
+          <Label htmlFor="text">Hello</Label>
           <div className="relative">
             <Input id="text" type="text" value={options.text} onChange={(e) => setOptions((prev) => ({ ...prev, text: e.target.value }))}/>
           </div>
         </div>
       </div>
       <div className="w-full flex flex-col gap-1.5 *:transition *:duration-150">
-        <Button className="" onClick={() => NetworkMessages.HELLO_WORLD.send(options)}>
-          Submit
-        </Button>
+        <Button className="" onClick={() => NetworkMessages.HELLO_WORLD.send(options)}>Submit</Button>
+      </div>
+      <div className="w-full flex gap-1.5 text-xs text-muted-foreground">
+        <p>React: {React.version}</p>
+        <p>TailwindCSS: {tailwindVersion}</p>
       </div>
     </form>
   ) : (
